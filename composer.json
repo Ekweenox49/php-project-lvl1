@@ -1,0 +1,6 @@
+{
+    "name": "hexlet/code",
+    "description": "My first project \"Brain Games\"",
+    "bin": ["bin/brain-games"],
+    "require": {}
+}
