@@ -4,4 +4,7 @@
 
 ![example workflow](https://github.com/Ekweenox49/php-project-lvl1/actions/workflows/lint.yml/badge.svg)
 
+brain-even:
+https://asciinema.org/a/yv3xCmvb21cTqfijqxgSjen0V
+
 
