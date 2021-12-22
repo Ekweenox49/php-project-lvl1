@@ -31,3 +31,22 @@ function congrat($name)
 {
     line("Congratulations, {$name}!");
 }
+
+function getGcd($num1, $num2)
+{
+    if ($num1 === $num2) {
+        return $num1;
+    }
+    $min_num = min($num1, $num2);
+    $max_num = max($num1, $num2);
+    if ($num1 % $min_num == 0 && $num2 % $min_num == 0) {
+        return $min_num;
+    }
+    $devisors = [];
+    for ($i = 1; $i < $min_num / 2; $i++) {
+        if ($min_num % $i == 0 && $max_num % $i == 0) {
+            $devisors[] = $i;
+        }
+    }
+    return max($devisors);
+}

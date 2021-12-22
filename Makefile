@@ -15,3 +15,9 @@ brain-even:
 
 brain-calc:
 	./bin/brain-calc
+
+dump-autoload:
+	composer dump-autoload
+
+brain-gcd:
+	./bin/brain-gcd
