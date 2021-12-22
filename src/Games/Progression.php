@@ -16,9 +16,9 @@ function progression()
     $max = 20;
     $name = getNameAndGiveTask('What number is missing in the progression?');
     for ($i = 0; $i < 3; $i++) {
-        $prog_length = 10;
         $step = random_int($min, $max);
         $progression = getProgressin($step);
+        $prog_length = count($progression);
         $hide = random_int(0, $prog_length - 1);
         $correct_answer = $progression[$hide];
         $progression[$hide] = '..';
@@ -34,5 +34,5 @@ function progression()
             return;
         }
     }
-    congrat($name);
+     return congrat($name);
 }
