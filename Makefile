@@ -21,3 +21,6 @@ dump-autoload:
 
 brain-gcd:
 	./bin/brain-gcd
+
+start-rec:
+	asciinema rec
