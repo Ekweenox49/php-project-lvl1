@@ -24,3 +24,6 @@ brain-gcd:
 
 start-rec:
 	asciinema rec
+
+brain-progression:
+	./bin/brain-progression

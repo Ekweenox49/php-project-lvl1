@@ -50,3 +50,16 @@ function getGcd($num1, $num2)
     }
     return max($devisors);
 }
+
+function getProgressin($step)
+{
+    $min = -50;
+    $max = 50;
+    $start = random_int($min, $max);
+    $progression = [$start];
+    for ($i = 0; $i < 8; $i++) {
+        $start += $step;
+        $progression[] = $start;
+    }
+    return $progression;
+}
