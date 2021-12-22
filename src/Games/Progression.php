@@ -23,7 +23,7 @@ function progression()
         $correct_answer = $progression[$hide];
         $progression[$hide] = '..';
         $prog_string = "{$progression[0]}";
-        for ($j = 1; $j < $prog_length - 1; $j++) {
+        for ($j = 1; $j < $prog_length; $j++) {
             $prog_string .= " {$progression[$j]}";
         }
         $answer = getAnswer("Question: {$prog_string}");
