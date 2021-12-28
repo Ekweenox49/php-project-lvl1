@@ -43,7 +43,7 @@ function getGcd($num1, $num2)
         return $min_num;
     }
     $devisors = [];
-    for ($i = 1; $i < $min_num / 2; $i++) {
+    for ($i = 1; $i <= $min_num / 2; $i++) {
         if ($min_num % $i == 0 && $max_num % $i == 0) {
             $devisors[] = $i;
         }
