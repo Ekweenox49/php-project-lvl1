@@ -63,3 +63,15 @@ function getProgressin($step)
     }
     return $progression;
 }
+
+function isPrime($num)
+{
+    $dev = [];
+    for ($i = 2; $i < $num / 2; $i++) {
+        if ($num % $i == 0) {
+            $dev[] = $i;
+            return 'no';
+        }
+    }
+    return 'yes';
+}
