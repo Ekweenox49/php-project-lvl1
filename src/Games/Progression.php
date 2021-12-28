@@ -14,11 +14,11 @@ function progression()
 {
     $min = -20;
     $max = 20;
+    $prog_length = 9;
     $name = getNameAndGiveTask('What number is missing in the progression?');
     for ($i = 0; $i < 3; $i++) {
         $step = random_int($min, $max);
-        $progression = getProgressin($step);
-        $prog_length = count($progression);
+        $progression = getProgressin($step, $prog_length);
         $hide = random_int(0, $prog_length - 1);
         $correct_answer = $progression[$hide];
         $progression[$hide] = '..';

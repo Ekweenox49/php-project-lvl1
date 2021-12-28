@@ -16,8 +16,8 @@ function calc()
     $name = getNameAndGiveTask('What is the result of the expression?');
     for ($i = 0; $i < 3; $i++) {
         $operators = ['+', '-', '*'];
-        shuffle($operators);
-        $operator = $operators[0];
+        $index = random_int(0, 2);
+        $operator = $operators[$index];
         $num1 = random_int($min, $max);
         $num2 = random_int($min, $max);
         $answer = getAnswer("Question: {$num1} {$operator} {$num2}");

@@ -5,7 +5,7 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function getNameAndGiveTask($question)
+function getNameAndGiveTask(string $question)
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -14,25 +14,25 @@ function getNameAndGiveTask($question)
     return $name;
 }
 
-function getAnswer($task)
+function getAnswer(string $task)
 {
     $answer = prompt("{$task}");
     line("Your answer: %s", $answer);
     return $answer;
 }
 
-function wrongAnswer($wrong_answer, $correct_answer, $name)
+function wrongAnswer(string $wrong_answer, string $correct_answer, string $name)
 {
     line("'{$wrong_answer}' is wrong answer ;(. Correct answer was '{$correct_answer}'.");
     line("Let's try again, {$name}!");
 }
 
-function congrat($name)
+function congrat(string $name)
 {
     line("Congratulations, {$name}!");
 }
 
-function getGcd($num1, $num2)
+function getGcd(int $num1, int $num2)
 {
     if ($num1 === $num2) {
         return $num1;
@@ -51,20 +51,20 @@ function getGcd($num1, $num2)
     return max($devisors);
 }
 
-function getProgressin($step)
+function getProgressin(int $step, int $prog_length)
 {
     $min = -50;
     $max = 50;
     $start = random_int($min, $max);
     $progression = [$start];
-    for ($i = 0; $i < 8; $i++) {
+    for ($i = 0; $i < $prog_length -1; $i++) {
         $start += $step;
         $progression[] = $start;
     }
     return $progression;
 }
 
-function isPrime($num)
+function isPrime(int $num)
 {
     if ($num > 3) {
         $dev = [];
