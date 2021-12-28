@@ -18,8 +18,8 @@ function calc()
         $operators = ['+', '-', '*'];
         $index = random_int(0, 2);
         $operator = $operators[$index];
-        $num1 = random_int($min, $max);
-        $num2 = random_int($min, $max);
+        $num1 = strval(random_int($min, $max));
+        $num2 = strval(random_int($min, $max));
         $answer = getAnswer("Question: {$num1} {$operator} {$num2}");
         if ($operator === '+') {
             $correct_answer = $num1 + $num2;
