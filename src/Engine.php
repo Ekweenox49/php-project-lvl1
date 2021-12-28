@@ -57,7 +57,7 @@ function getProgressin(int $step, int $prog_length)
     $max = 50;
     $start = random_int($min, $max);
     $progression = [$start];
-    for ($i = 0; $i < $prog_length -1; $i++) {
+    for ($i = 0; $i < $prog_length - 1; $i++) {
         $start += $step;
         $progression[] = $start;
     }
