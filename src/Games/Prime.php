@@ -12,7 +12,7 @@ use function Brain\Games\Engine\isPrime;
 
 function prime()
 {
-    $min = 1;
+    $min = 2;
     $max = 100;
     $name = getNameAndGiveTask('Answer "yes" if given number is prime. Otherwise answer "no".');
     for ($i = 0; $i < 3; $i++) {

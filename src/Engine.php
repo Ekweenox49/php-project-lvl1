@@ -7,7 +7,7 @@ use function cli\prompt;
 
 function getNameAndGiveTask($question)
 {
-    line('Welcome to the Brain Game!');
+    line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     line("{$question}");
@@ -66,11 +66,13 @@ function getProgressin($step)
 
 function isPrime($num)
 {
-    $dev = [];
-    for ($i = 2; $i < $num / 2; $i++) {
-        if ($num % $i == 0) {
-            $dev[] = $i;
-            return 'no';
+    if ($num > 3) {
+        $dev = [];
+        for ($i = 2; $i <= $num / 2; $i++) {
+            if ($num % $i == 0) {
+                $dev[] = $i;
+                return 'no';
+            }
         }
     }
     return 'yes';
