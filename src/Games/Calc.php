@@ -21,7 +21,7 @@ function calc()
         $num1 = random_int($min, $max);
         $num2 = random_int($min, $max);
         $answer = getAnswer("Question: {$num1} {$operator} {$num2}");
-        if ($operator === '+') {
+        if ($operator == '+') {
             $correct_answer = strval($num1 + $num2);
             if ($answer == $correct_answer) {
                 line('Correct!');
@@ -29,7 +29,7 @@ function calc()
                 wrongAnswer($answer, $correct_answer, $name);
                 return;
             }
-        } elseif ($operator === '-') {
+        } elseif ($operator == '-') {
             $correct_answer = strval($num1 - $num2);
             if ($answer == $correct_answer) {
                 line('Correct!');
@@ -37,7 +37,7 @@ function calc()
                 wrongAnswer($answer, $correct_answer, $name);
                 return;
             }
-        } elseif ($operator === '*') {
+        } elseif ($operator == '*') {
             $correct_answer = strval($num1 * $num2);
             if ($answer == $correct_answer) {
                 line('Correct!');
