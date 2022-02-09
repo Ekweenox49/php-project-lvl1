@@ -2,50 +2,29 @@
 
 namespace Brain\Games\Calc;
 
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Engine\getNameAndGiveTask;
-use function Brain\Games\Engine\getAnswer;
-use function Brain\Games\Engine\wrongAnswer;
-use function Brain\Games\Engine\congrat;
+use function Brain\Engine\startGame;
 
 function calc()
 {
+    $question = 'What is the result of the expression?';
     $min = 0;
     $max = 20;
-    $name = getNameAndGiveTask('What is the result of the expression?');
+    $tasks = [];
+    $correct_answers = [];
     for ($i = 0; $i < 3; $i++) {
         $operators = ['+', '-', '*'];
         $index = random_int(0, 2);
         $operator = $operators[$index];
         $num1 = random_int($min, $max);
         $num2 = random_int($min, $max);
-        $answer = getAnswer("Question: {$num1} {$operator} {$num2}");
+        $tasks[] = "Question: {$num1} {$operator} {$num2}";
         if ($operator == '+') {
-            $correct_answer = strval($num1 + $num2);
-            if ($answer == $correct_answer) {
-                line('Correct!');
-            } else {
-                wrongAnswer($answer, $correct_answer, $name);
-                return;
-            }
+            $correct_answers[] = strval($num1 + $num2);
         } elseif ($operator == '-') {
-            $correct_answer = strval($num1 - $num2);
-            if ($answer == $correct_answer) {
-                line('Correct!');
-            } else {
-                wrongAnswer($answer, $correct_answer, $name);
-                return;
-            }
+            $correct_answers[] = strval($num1 - $num2);
         } elseif ($operator == '*') {
-            $correct_answer = strval($num1 * $num2);
-            if ($answer == $correct_answer) {
-                line('Correct!');
-            } else {
-                wrongAnswer($answer, $correct_answer, $name);
-                return;
-            }
+            $correct_answers[] = strval($num1 * $num2);
         }
     }
-    congrat($name);
+    startGame($question, $tasks, $correct_answers);
 }

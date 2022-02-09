@@ -2,29 +2,33 @@
 
 namespace Brain\Games\Prime;
 
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Engine\getNameAndGiveTask;
-use function Brain\Games\Engine\getAnswer;
-use function Brain\Games\Engine\wrongAnswer;
-use function Brain\Games\Engine\congrat;
-use function Brain\Games\Engine\isPrime;
+use function Brain\Engine\startGame;
+
+function isPrime(int $num)
+{
+    if ($num > 3) {
+        $dev = [];
+        for ($i = 2; $i <= $num / 2; $i++) {
+            if ($num % $i == 0) {
+                $dev[] = $i;
+                return 'no';
+            }
+        }
+    }
+    return 'yes';
+}
 
 function prime()
 {
     $min = 2;
     $max = 100;
-    $name = getNameAndGiveTask('Answer "yes" if given number is prime. Otherwise answer "no".');
+    $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $tasks = [];
+    $correct_answers = [];
     for ($i = 0; $i < 3; $i++) {
         $num = random_int($min, $max);
-        $correct_answer = isPrime($num);
-        $answer = getAnswer("Question: {$num}");
-        if ($answer == $correct_answer) {
-            line('Correct!');
-        } else {
-            wrongAnswer($answer, $correct_answer, $name);
-            return;
-        }
+        $correct_answers[] = isPrime($num);
+        $tasks[] = "Question: {$num}";
     }
-    return congrat($name);
+    startGame($question, $tasks, $correct_answers);
 }
