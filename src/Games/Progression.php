@@ -31,11 +31,8 @@ function progression()
         $hide = random_int(0, $prog_length - 1);
         $correct_answers[] = $progression[$hide];
         $progression[$hide] = '..';
-        $prog_string = "{$progression[0]}";
-        for ($j = 1; $j < $prog_length; $j++) {
-            $prog_string .= " {$progression[$j]}";
-        }
+        $prog_string = implode(' ', $progression);
         $tasks[] = "Question: {$prog_string}";
     }
-     startGame($question, $tasks, $correct_answers);
+    startGame($question, $tasks, $correct_answers);
 }
