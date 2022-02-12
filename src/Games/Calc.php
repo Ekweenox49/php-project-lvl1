@@ -4,7 +4,7 @@ namespace Brain\Games\Calc;
 
 use function Brain\Engine\startGame;
 
-function calculate($num1, $num2, $operator)
+function calculate(int $num1, int $num2, string $operator)
 {
     switch ($operator) {
         case '+':
