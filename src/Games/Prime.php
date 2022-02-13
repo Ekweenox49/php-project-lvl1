@@ -26,13 +26,14 @@ function prime()
 {
     $min = 2;
     $max = 100;
+    $rounds = 3;
     $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $tasks = [];
     $correct_answers = [];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < $rounds; $i++) {
         $num = random_int($min, $max);
         $correct_answers[] = isPrime($num) ? 'yes' : 'no';
         $tasks[] = "Question: {$num}";
     }
-    startGame($question, $tasks, $correct_answers);
+    startGame($question, $tasks, $correct_answers, $rounds);
 }

@@ -8,10 +8,11 @@ function even()
 {
     $min = 0;
     $max = 100;
+    $rounds = 3;
     $quedtion = 'Answer "yes" if the number is even, otherwise answer "no".';
     $tasks = [];
     $correct_answers = [];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < $rounds; $i++) {
         $number = random_int($min, $max);
         $tasks[] = "Question: {$number}";
         if ($number % 2 === 0) {
@@ -20,5 +21,5 @@ function even()
               $correct_answers[] = 'no';
         }
     }
-    startGame($quedtion, $tasks, $correct_answers);
+    startGame($quedtion, $tasks, $correct_answers, $rounds);
 }

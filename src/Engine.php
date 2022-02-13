@@ -5,13 +5,12 @@ namespace Brain\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function startGame(string $question, array $tasks, array $correct_answers)
+function startGame(string $question, array $tasks, array $correct_answers, int $rounds)
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     line("{$question}");
-    $rounds = 3;
     for ($i = 0; $i < $rounds; $i++) {
         $answer = prompt("{$tasks[$i]}");
         line("Your answer: %s", $answer);

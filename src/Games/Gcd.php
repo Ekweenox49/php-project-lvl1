@@ -28,13 +28,14 @@ function gcd()
     $question = 'Find the greatest common divisor of given numbers.';
     $min = 1;
     $max = 100;
+    $rounds = 3;
     $tasks = [];
     $correct_answers = [];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < $rounds; $i++) {
         $num1 = random_int($min, $max);
         $num2 = random_int($min, $max);
         $tasks[] = "Question: {$num1} {$num2}";
         $correct_answers[] = getGcd($num1, $num2);
     }
-    startGame($question, $tasks, $correct_answers);
+    startGame($question, $tasks, $correct_answers, $rounds);
 }

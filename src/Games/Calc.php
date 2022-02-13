@@ -23,10 +23,11 @@ function calc()
     $question = 'What is the result of the expression?';
     $min = 0;
     $max = 20;
+    $rounds = 3;
     $tasks = [];
     $correct_answers = [];
     $operators = ['+', '-', '*'];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < $rounds; $i++) {
         $index = random_int(0, 2);
         $operator = $operators[$index];
         $num1 = random_int($min, $max);
@@ -38,5 +39,5 @@ function calc()
             echo 'Ошибка: ',  $e->getMessage(), "\n";
         }
     }
-    startGame($question, $tasks, $correct_answers);
+    startGame($question, $tasks, $correct_answers, $rounds);
 }
