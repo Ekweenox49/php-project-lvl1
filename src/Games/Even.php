@@ -3,12 +3,13 @@
 namespace Brain\Games\Even;
 
 use function Brain\Engine\startGame;
+use function Brain\Engine\getRounds;
 
 function even()
 {
     $min = 0;
     $max = 100;
-    $rounds = 3;
+    $rounds = getRounds();
     $quedtion = 'Answer "yes" if the number is even, otherwise answer "no".';
     $tasks = [];
     $correct_answers = [];
@@ -21,5 +22,5 @@ function even()
               $correct_answers[] = 'no';
         }
     }
-    startGame($quedtion, $tasks, $correct_answers, $rounds);
+    startGame($quedtion, $tasks, $correct_answers);
 }

@@ -3,6 +3,7 @@
 namespace Brain\Games\Prime;
 
 use function Brain\Engine\startGame;
+use function Brain\Engine\getRounds;
 
 function isPrime(int $num)
 {
@@ -26,7 +27,7 @@ function prime()
 {
     $min = 2;
     $max = 100;
-    $rounds = 3;
+    $rounds = getRounds();
     $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $tasks = [];
     $correct_answers = [];
@@ -35,5 +36,5 @@ function prime()
         $correct_answers[] = isPrime($num) ? 'yes' : 'no';
         $tasks[] = "Question: {$num}";
     }
-    startGame($question, $tasks, $correct_answers, $rounds);
+    startGame($question, $tasks, $correct_answers);
 }

@@ -3,6 +3,7 @@
 namespace Brain\Games\Progression;
 
 use function Brain\Engine\startGame;
+use function Brain\Engine\getRounds;
 
 function getProgressin(int $step, int $prog_length)
 {
@@ -22,7 +23,7 @@ function progression()
     $min = -20;
     $max = 20;
     $prog_length = 9;
-    $rounds = 3;
+    $rounds = getRounds();
     $question = 'What number is missing in the progression?';
     $tasks = [];
     $correct_answers = [];
@@ -35,5 +36,5 @@ function progression()
         $prog_string = implode(' ', $progression);
         $tasks[] = "Question: {$prog_string}";
     }
-    startGame($question, $tasks, $correct_answers, $rounds);
+    startGame($question, $tasks, $correct_answers);
 }

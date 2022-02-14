@@ -3,6 +3,7 @@
 namespace Brain\Games\Calc;
 
 use function Brain\Engine\startGame;
+use function Brain\Engine\getRounds;
 
 function calculate(int $num1, int $num2, string $operator)
 {
@@ -23,7 +24,7 @@ function calc()
     $question = 'What is the result of the expression?';
     $min = 0;
     $max = 20;
-    $rounds = 3;
+    $rounds = getRounds();
     $tasks = [];
     $correct_answers = [];
     $operators = ['+', '-', '*'];
@@ -39,5 +40,5 @@ function calc()
             echo 'Ошибка: ',  $e->getMessage(), "\n";
         }
     }
-    startGame($question, $tasks, $correct_answers, $rounds);
+    startGame($question, $tasks, $correct_answers);
 }

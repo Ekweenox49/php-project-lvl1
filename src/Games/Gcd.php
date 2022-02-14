@@ -3,6 +3,7 @@
 namespace Brain\Games\Gcd;
 
 use function Brain\Engine\startGame;
+use function Brain\Engine\getRounds;
 
 function getGcd(int $num1, int $num2)
 {
@@ -28,7 +29,7 @@ function gcd()
     $question = 'Find the greatest common divisor of given numbers.';
     $min = 1;
     $max = 100;
-    $rounds = 3;
+    $rounds = getRounds();
     $tasks = [];
     $correct_answers = [];
     for ($i = 0; $i < $rounds; $i++) {
@@ -37,5 +38,5 @@ function gcd()
         $tasks[] = "Question: {$num1} {$num2}";
         $correct_answers[] = getGcd($num1, $num2);
     }
-    startGame($question, $tasks, $correct_answers, $rounds);
+    startGame($question, $tasks, $correct_answers);
 }
