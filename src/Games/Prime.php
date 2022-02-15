@@ -12,10 +12,8 @@ function isPrime(int $num)
     }
 
     if ($num > 3) {
-        $dev = [];
         for ($i = 2; $i <= $num / 2; $i++) {
             if ($num % $i == 0) {
-                $dev[] = $i;
                 return false;
             }
         }
