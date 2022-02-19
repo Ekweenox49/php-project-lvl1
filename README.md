@@ -15,8 +15,8 @@ Games:
 5) brain-prime : Determining if a number is prime.
 
 ### Requirements
-PHP 7
-Composer 2.1
+-   PHP 7
+-   Composer 2.1
 
 ### Install
 ```sh
