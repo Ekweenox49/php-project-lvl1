@@ -3,7 +3,6 @@
 namespace Brain\Games\Gcd;
 
 use function Brain\Engine\startGame;
-use function Brain\Engine\getRounds;
 
 define('GCD_QUESTION', 'Find the greatest common divisor of given numbers.');
 

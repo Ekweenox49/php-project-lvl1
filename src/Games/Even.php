@@ -3,7 +3,6 @@
 namespace Brain\Games\Even;
 
 use function Brain\Engine\startGame;
-use function Brain\Engine\getRounds;
 
 define('EVEN_QUESTION', 'Answer "yes" if the number is even, otherwise answer "no".');
 

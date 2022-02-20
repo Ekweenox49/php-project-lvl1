@@ -3,7 +3,6 @@
 namespace Brain\Games\Calc;
 
 use function Brain\Engine\startGame;
-use function Brain\Engine\getRounds;
 
 define('CALC_QUESTION', 'What is the result of the expression?');
 

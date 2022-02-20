@@ -3,7 +3,6 @@
 namespace Brain\Games\Progression;
 
 use function Brain\Engine\startGame;
-use function Brain\Engine\getRounds;
 
 define('PROGRESSION_QUESTION', 'What number is missing in the progression?');
 
