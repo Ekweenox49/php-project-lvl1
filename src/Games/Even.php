@@ -5,22 +5,22 @@ namespace Brain\Games\Even;
 use function Brain\Engine\startGame;
 use function Brain\Engine\getRounds;
 
+define('EVEN_QUESTION', 'Answer "yes" if the number is even, otherwise answer "no".');
+
 function even()
 {
     $min = 0;
     $max = 100;
-    $rounds = getRounds();
-    $quedtion = 'Answer "yes" if the number is even, otherwise answer "no".';
-    $tasks = [];
-    $correct_answers = [];
-    for ($i = 0; $i < $rounds; $i++) {
+    $gameData = [];
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $number = random_int($min, $max);
-        $tasks[] = "Question: {$number}";
+        $task = "Question: {$number}";
         if ($number % 2 === 0) {
-              $correct_answers[] = 'yes';
+              $correctAnswer = 'yes';
         } else {
-              $correct_answers[] = 'no';
+              $correctAnswer = 'no';
         }
+        $gameData[] = [$task, $correctAnswer];
     }
-    startGame($quedtion, $tasks, $correct_answers);
+    startGame(EVEN_QUESTION, $gameData);
 }

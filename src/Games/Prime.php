@@ -5,9 +5,11 @@ namespace Brain\Games\Prime;
 use function Brain\Engine\startGame;
 use function Brain\Engine\getRounds;
 
+define('PRIME_QUESTION', 'Answer "yes" if given number is prime. Otherwise answer "no".');
+
 function isPrime(int $num)
 {
-    if ($num == 1) {
+    if ($num < 2) {
         return false;
     }
 
@@ -25,14 +27,12 @@ function prime()
 {
     $min = 2;
     $max = 100;
-    $rounds = getRounds();
-    $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    $tasks = [];
-    $correct_answers = [];
-    for ($i = 0; $i < $rounds; $i++) {
+    $gameData = [];
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $num = random_int($min, $max);
-        $correct_answers[] = isPrime($num) ? 'yes' : 'no';
-        $tasks[] = "Question: {$num}";
+        $correctAnswer = isPrime($num) ? 'yes' : 'no';
+        $task = "Question: {$num}";
+        $gameData[] = [$task, $correctAnswer];
     }
-    startGame($question, $tasks, $correct_answers);
+    startGame(PRIME_QUESTION, $gameData);
 }

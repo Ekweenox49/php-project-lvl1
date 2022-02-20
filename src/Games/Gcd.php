@@ -5,38 +5,38 @@ namespace Brain\Games\Gcd;
 use function Brain\Engine\startGame;
 use function Brain\Engine\getRounds;
 
+define('GCD_QUESTION', 'Find the greatest common divisor of given numbers.');
+
 function getGcd(int $num1, int $num2)
 {
     if ($num1 === $num2) {
         return $num1;
     }
-    $min_num = min($num1, $num2);
-    $max_num = max($num1, $num2);
-    if ($num1 % $min_num == 0 && $num2 % $min_num == 0) {
-        return $min_num;
+    $minNum = min($num1, $num2);
+    $maxNum = max($num1, $num2);
+    if ($num1 % $minNum == 0 && $num2 % $minNum == 0) {
+        return $minNum;
     }
-    $devisors = [];
-    for ($i = 1; $i <= $min_num / 2; $i++) {
-        if ($min_num % $i == 0 && $max_num % $i == 0) {
-            $devisors[] = $i;
+    $greatestDevisor = 1;
+    for ($i = 2; $i <= $minNum / 2; $i++) {
+        if ($minNum % $i == 0 && $maxNum % $i == 0) {
+            $greatestDevisor = $i;
         }
     }
-    return max($devisors);
+    return $greatestDevisor;
 }
 
 function gcd()
 {
-    $question = 'Find the greatest common divisor of given numbers.';
     $min = 1;
     $max = 100;
-    $rounds = getRounds();
-    $tasks = [];
-    $correct_answers = [];
-    for ($i = 0; $i < $rounds; $i++) {
+    $gameData = [];
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $num1 = random_int($min, $max);
         $num2 = random_int($min, $max);
-        $tasks[] = "Question: {$num1} {$num2}";
-        $correct_answers[] = getGcd($num1, $num2);
+        $task = "Question: {$num1} {$num2}";
+        $correctAnswer = getGcd($num1, $num2);
+        $gameData[] = [$task, $correctAnswer];
     }
-    startGame($question, $tasks, $correct_answers);
+    startGame(GCD_QUESTION, $gameData);
 }
