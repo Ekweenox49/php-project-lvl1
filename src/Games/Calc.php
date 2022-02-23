@@ -4,7 +4,7 @@ namespace Brain\Games\Calc;
 
 use function Brain\Engine\startGame;
 
-define('CALC_QUESTION', 'What is the result of the expression?');
+const QUESTION = 'What is the result of the expression?';
 
 function calculate(int $num1, int $num2, string $operator)
 {
@@ -20,20 +20,25 @@ function calculate(int $num1, int $num2, string $operator)
     }
 }
 
-function calc()
+function game()
 {
     $min = 0;
     $max = 20;
-    $gameData = [];
     $operators = ['+', '-', '*'];
+
+    $gameData = [];
+
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
-        $index = random_int(0, count($operators) - 1);
+        $index = array_rand($operators);
         $operator = $operators[$index];
+
         $num1 = random_int($min, $max);
         $num2 = random_int($min, $max);
+
         $task = "Question: {$num1} {$operator} {$num2}";
         $correctAnswer = calculate($num1, $num2, $operator);
+
         $gameData[] = [$task, $correctAnswer];
     }
-    startGame(CALC_QUESTION, $gameData);
+    startGame(QUESTION, $gameData);
 }

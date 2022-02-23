@@ -4,36 +4,42 @@ namespace Brain\Games\Progression;
 
 use function Brain\Engine\startGame;
 
-define('PROGRESSION_QUESTION', 'What number is missing in the progression?');
+const QUESTION = 'What number is missing in the progression?';
 
-function getProgressin(int $step, int $prog_length)
+function getProgression(int $step, int $progressionLength)
 {
     $min = -50;
     $max = 50;
+
     $start = random_int($min, $max);
     $progression = [$start];
-    for ($i = 0; $i < $prog_length - 1; $i++) {
-        $start += $step;
-        $progression[] = $start;
+
+    for ($i = 1; $i < $progressionLength; $i++) {
+        $progression[] = $start + $i * $step;
     }
     return $progression;
 }
 
-function progression()
+function game()
 {
     $min = -20;
     $max = 20;
     $progressionLength = 9;
+
     $gameData = [];
+
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $step = random_int($min, $max);
-        $progression = getProgressin($step, $progressionLength);
+        $progression = getProgression($step, $progressionLength);
+
         $hiddenPosition = random_int(0, $progressionLength - 1);
         $correctAnswer = $progression[$hiddenPosition];
+
         $progression[$hiddenPosition] = '..';
         $progressionString = implode(' ', $progression);
         $task = "Question: {$progressionString}";
+
         $gameData[] = [$task, $correctAnswer];
     }
-    startGame(PROGRESSION_QUESTION, $gameData);
+    startGame(QUESTION, $gameData);
 }

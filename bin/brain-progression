@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use function Brain\Games\Progression\progression;
+use function Brain\Games\Progression\game;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -13,4 +13,4 @@ if (file_exists($autoloadPath1)) {
 
 
 
-progression();
+game();
