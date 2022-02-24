@@ -4,6 +4,8 @@ namespace Brain\Games\Even;
 
 use function Brain\Engine\startGame;
 
+use const Brain\Engine\ROUNDS_COUNT;
+
 const QUESTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven(int $num)

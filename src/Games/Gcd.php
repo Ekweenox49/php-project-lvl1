@@ -4,6 +4,8 @@ namespace Brain\Games\Gcd;
 
 use function Brain\Engine\startGame;
 
+use const Brain\Engine\ROUNDS_COUNT;
+
 const QUESTION = 'Find the greatest common divisor of given numbers.';
 
 function getGcd(int $num1, int $num2)
