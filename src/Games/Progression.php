@@ -35,7 +35,7 @@ function startGame()
         $progression = getProgression($step, $progressionLength);
 
         $hiddenPosition = random_int(0, $progressionLength - 1);
-        $correctAnswer = $progression[$hiddenPosition];
+        $correctAnswer = strval($progression[$hiddenPosition]);
 
         $progression[$hiddenPosition] = '..';
         $progressionString = implode(' ', $progression);

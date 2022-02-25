@@ -18,7 +18,7 @@ function startEngine(string $question, array $gameData)
         $answer = prompt($task);
         line("Your answer: %s", $answer);
 
-        if ($answer != $correctAnswer) {
+        if ($answer !== $correctAnswer) {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
             line("Let's try again, {$name}!");
             return;
