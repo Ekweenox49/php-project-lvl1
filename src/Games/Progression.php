@@ -14,7 +14,7 @@ function getProgression(int $step, int $progressionLength)
     $max = 50;
 
     $start = random_int($min, $max);
-    // $progression = [$start];
+    $progression = [];
 
     for ($i = 0; $i < $progressionLength; $i++) {
         $progression[] = $start + $i * $step;
