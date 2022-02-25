@@ -38,7 +38,7 @@ function startGame()
         $num2 = random_int($min, $max);
 
         $task = "Question: {$num1} {$operator} {$num2}";
-        $correctAnswer = strval(calculate($num1, $num2, $operator));
+        $correctAnswer = calculate($num1, $num2, $operator);
 
         $gameData[] = [$task, $correctAnswer];
     }
