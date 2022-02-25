@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Calc;
 
-use function Brain\Engine\startGame;
+use function Brain\Engine\startEngine;
 
 use const Brain\Engine\ROUNDS_COUNT;
 
@@ -18,11 +18,11 @@ function calculate(int $num1, int $num2, string $operator)
         case '*':
             return $num1 * $num2;
         default:
-            throw new \Exception('Неизвестный оператор!');
+            throw new \Exception('Invalid operator!');
     }
 }
 
-function game()
+function startGame()
 {
     $min = 0;
     $max = 20;
@@ -38,9 +38,9 @@ function game()
         $num2 = random_int($min, $max);
 
         $task = "Question: {$num1} {$operator} {$num2}";
-        $correctAnswer = calculate($num1, $num2, $operator);
+        $correctAnswer = strval(calculate($num1, $num2, $operator));
 
         $gameData[] = [$task, $correctAnswer];
     }
-    startGame(QUESTION, $gameData);
+    startEngine(QUESTION, $gameData);
 }

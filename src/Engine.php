@@ -7,7 +7,7 @@ use function cli\prompt;
 
 const ROUNDS_COUNT = 3;
 
-function startGame(string $question, array $gameData)
+function startEngine(string $question, array $gameData)
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -18,7 +18,7 @@ function startGame(string $question, array $gameData)
         $answer = prompt($task);
         line("Your answer: %s", $answer);
 
-        if ($answer != $correctAnswer) {
+        if ($answer !== $correctAnswer) {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
             line("Let's try again, {$name}!");
             return;

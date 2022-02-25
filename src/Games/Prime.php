@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Engine\startGame;
+use function Brain\Engine\startEngine;
 
 use const Brain\Engine\ROUNDS_COUNT;
 
@@ -24,7 +24,7 @@ function isPrime(int $num)
     return true;
 }
 
-function game()
+function startGame()
 {
     $min = 2;
     $max = 100;
@@ -39,5 +39,5 @@ function game()
 
         $gameData[] = [$task, $correctAnswer];
     }
-    startGame(QUESTION, $gameData);
+    startEngine(QUESTION, $gameData);
 }

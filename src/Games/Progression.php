@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Progression;
 
-use function Brain\Engine\startGame;
+use function Brain\Engine\startEngine;
 
 use const Brain\Engine\ROUNDS_COUNT;
 
@@ -14,15 +14,15 @@ function getProgression(int $step, int $progressionLength)
     $max = 50;
 
     $start = random_int($min, $max);
-    $progression = [$start];
+    // $progression = [$start];
 
-    for ($i = 1; $i < $progressionLength; $i++) {
+    for ($i = 0; $i < $progressionLength; $i++) {
         $progression[] = $start + $i * $step;
     }
     return $progression;
 }
 
-function game()
+function startGame()
 {
     $min = -20;
     $max = 20;
@@ -35,7 +35,7 @@ function game()
         $progression = getProgression($step, $progressionLength);
 
         $hiddenPosition = random_int(0, $progressionLength - 1);
-        $correctAnswer = $progression[$hiddenPosition];
+        $correctAnswer = strval($progression[$hiddenPosition]);
 
         $progression[$hiddenPosition] = '..';
         $progressionString = implode(' ', $progression);
@@ -43,5 +43,5 @@ function game()
 
         $gameData[] = [$task, $correctAnswer];
     }
-    startGame(QUESTION, $gameData);
+    startEngine(QUESTION, $gameData);
 }

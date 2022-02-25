@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Gcd;
 
-use function Brain\Engine\startGame;
+use function Brain\Engine\startEngine;
 
 use const Brain\Engine\ROUNDS_COUNT;
 
@@ -21,20 +21,20 @@ function getGcd(int $num1, int $num2)
         return $maxNum;
     }
 
-    if ($num1 % $minNum == 0 && $num2 % $minNum == 0) {
+    if ($num1 % $minNum === 0 && $num2 % $minNum === 0) {
         return $minNum;
     }
 
     $greatestDevisor = 1;
     for ($i = 2; $i <= $minNum / 2; $i++) {
-        if ($minNum % $i == 0 && $maxNum % $i == 0) {
+        if ($minNum % $i === 0 && $maxNum % $i === 0) {
             $greatestDevisor = $i;
         }
     }
     return $greatestDevisor;
 }
 
-function game()
+function startGame()
 {
     $min = 1;
     $max = 100;
@@ -44,9 +44,9 @@ function game()
         $num2 = random_int($min, $max);
 
         $task = "Question: {$num1} {$num2}";
-        $correctAnswer = getGcd($num1, $num2);
+        $correctAnswer = strval(getGcd($num1, $num2));
 
         $gameData[] = [$task, $correctAnswer];
     }
-    startGame(QUESTION, $gameData);
+    startEngine(QUESTION, $gameData);
 }

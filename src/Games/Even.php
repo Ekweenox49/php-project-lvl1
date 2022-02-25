@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Even;
 
-use function Brain\Engine\startGame;
+use function Brain\Engine\startEngine;
 
 use const Brain\Engine\ROUNDS_COUNT;
 
@@ -13,7 +13,7 @@ function isEven(int $num)
     return $num % 2 === 0;
 }
 
-function game()
+function startGame()
 {
     $min = 0;
     $max = 100;
@@ -28,5 +28,5 @@ function game()
 
         $gameData[] = [$task, $correctAnswer];
     }
-    startGame(QUESTION, $gameData);
+    startEngine(QUESTION, $gameData);
 }
