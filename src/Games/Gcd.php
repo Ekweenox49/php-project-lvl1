@@ -43,7 +43,7 @@ function startGame()
         $num1 = random_int($min, $max);
         $num2 = random_int($min, $max);
 
-        $task = "Question: {$num1} {$num2}";
+        $task = "{$num1} {$num2}";
         $correctAnswer = strval(getGcd($num1, $num2));
 
         $gameData[] = [$task, $correctAnswer];

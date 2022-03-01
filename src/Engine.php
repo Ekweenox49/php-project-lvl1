@@ -15,7 +15,7 @@ function startEngine(string $question, array $gameData)
     line($question);
 
     foreach ($gameData as [$task, $correctAnswer]) {
-        $answer = prompt($task);
+        $answer = prompt("Question: {$task}");
         line("Your answer: %s", $answer);
 
         if ($answer !== $correctAnswer) {

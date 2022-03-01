@@ -23,7 +23,7 @@ function startGame()
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $number = random_int($min, $max);
 
-        $task = "Question: {$number}";
+        $task = $number;
         $correctAnswer = isEven($number) ? 'yes' : 'no';
 
         $gameData[] = [$task, $correctAnswer];

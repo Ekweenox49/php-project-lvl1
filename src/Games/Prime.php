@@ -35,7 +35,7 @@ function startGame()
         $num = random_int($min, $max);
 
         $correctAnswer = isPrime($num) ? 'yes' : 'no';
-        $task = "Question: {$num}";
+        $task = $num;
 
         $gameData[] = [$task, $correctAnswer];
     }

@@ -39,7 +39,7 @@ function startGame()
 
         $progression[$hiddenPosition] = '..';
         $progressionString = implode(' ', $progression);
-        $task = "Question: {$progressionString}";
+        $task = $progressionString;
 
         $gameData[] = [$task, $correctAnswer];
     }
